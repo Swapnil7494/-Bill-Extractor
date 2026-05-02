@@ -1,0 +1,10 @@
+google-generativeai
+pandas
+fastapi
+uvicorn
+python-dotenv
+pillow
+pdf2image
+pytesseract
+openpyxl
+pillow-heif
