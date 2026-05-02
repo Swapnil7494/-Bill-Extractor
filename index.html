@@ -4,17 +4,54 @@
     <meta charset="UTF-8">
     <title>Bill Extractor</title>
 
-    <!-- Bootstrap CDN -->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+        }
+
+        .card {
+            background-color: #ffffff;
+            color: #000;
+            border-radius: 15px;
+        }
+
+        h2 {
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #2a5298;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #1e3c72;
+        }
+
+        #resultBox {
+            background-color: #0f172a;
+            color: #38bdf8;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        label {
+            font-weight: 500;
+        }
+    </style>
 </head>
-<body class="bg-light">
+
+<body>
 
 <div class="container mt-5">
 
     <h2 class="text-center mb-4">⚡ Electricity Bill Extractor</h2>
 
-    <div class="card p-4 shadow">
+    <div class="card p-4 shadow-lg">
 
         <!-- File Upload -->
         <div class="mb-3">
@@ -36,7 +73,7 @@
     <!-- Results -->
     <div class="mt-4">
         <h5>Results:</h5>
-        <pre id="resultBox" class="bg-dark text-white p-3 rounded" style="min-height:150px;"></pre>
+        <pre id="resultBox" class="p-3 shadow" style="min-height:150px;"></pre>
     </div>
 
 </div>
@@ -51,14 +88,12 @@ async function upload() {
 
     let formData = new FormData();
 
-    // Add files if selected
     if (filesInput.files.length > 0) {
         for (let i = 0; i < filesInput.files.length; i++) {
             formData.append("files", filesInput.files[i]);
         }
     }
 
-    // Add folder path if given
     if (folderPath) {
         formData.append("folder_path", folderPath);
     }
@@ -70,7 +105,6 @@ async function upload() {
         });
 
         const data = await response.json();
-
         resultBox.innerText = JSON.stringify(data, null, 2);
 
     } catch (error) {
