@@ -9,38 +9,41 @@
 
     <style>
         body {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: #fff;
+            background: linear-gradient(135deg, #e6f9f0, #ffffff);
+            color: #064e3b;
         }
 
         .card {
             background-color: #ffffff;
-            color: #000;
             border-radius: 15px;
+            border: 1px solid #bbf7d0;
         }
 
         h2 {
             font-weight: bold;
+            color: #047857;
         }
 
         .btn-primary {
-            background-color: #2a5298;
+            background-color: #16a34a;
             border: none;
         }
 
         .btn-primary:hover {
-            background-color: #1e3c72;
+            background-color: #15803d;
         }
 
         #resultBox {
-            background-color: #0f172a;
-            color: #38bdf8;
+            background-color: #ecfdf5;
+            color: #065f46;
             border-radius: 10px;
             font-size: 14px;
+            border: 1px solid #bbf7d0;
         }
 
         label {
             font-weight: 500;
+            color: #065f46;
         }
     </style>
 </head>
@@ -53,26 +56,22 @@
 
     <div class="card p-4 shadow-lg">
 
-        <!-- File Upload -->
         <div class="mb-3">
             <label class="form-label">Upload Bill(s)</label>
             <input type="file" class="form-control" id="files" multiple>
         </div>
 
-        <!-- Folder Path -->
         <div class="mb-3">
             <label class="form-label">OR Enter Folder Path</label>
             <input type="text" class="form-control" id="folderPath" placeholder="C:\Users\...\bills">
         </div>
 
-        <!-- Submit -->
         <button class="btn btn-primary w-100" onclick="upload()">Extract Data</button>
 
     </div>
 
-    <!-- Results -->
     <div class="mt-4">
-        <h5>Results:</h5>
+        <h5 style="color:#047857;">Results:</h5>
         <pre id="resultBox" class="p-3 shadow" style="min-height:150px;"></pre>
     </div>
 
@@ -115,3 +114,4 @@ async function upload() {
 
 </body>
 </html>
+
